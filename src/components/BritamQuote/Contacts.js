@@ -6,10 +6,10 @@ import { EMAIL_CONSTANTS } from './emailkey';
 export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest, 
 	payload, setSendingEmailLoader, sentEmailSuccess }) {
 
-	const [firstName, setFirstname] = useState('first')
-	const [lastName, setLastName] = useState('last')
-	const [email, setEmail] = useState('gurhanpro@gmail.com')
-	const [phone, setPhone] = useState('99999999')
+	const [firstName, setFirstname] = useState('')
+	const [lastName, setLastName] = useState('')
+	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
 
 	const form = useRef();
 	const firstNameRef = useRef();
