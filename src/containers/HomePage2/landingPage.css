@@ -1,11 +1,14 @@
 .hero-image-home {
-  background-image: url("back2.jpeg");
+  /* background-image: url("back2.jpeg"); */
   background-color: #ffff;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
+
+  /* min-height:100%; */
+  background:linear-gradient(0deg, rgba(34, 31, 33, 0.3), rgba(43, 40, 42, 0.3)), url("back2.jpeg");
+  background-size:cover;
 }
   
 .header-section-home{
