@@ -38,7 +38,7 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 		console.log('ref form: ', form.current);
 
 
-		setSendingEmailLoader(true)
+		// setSendingEmailLoader(true)
 		setEmailLoader(true)
 
 		emailjs.sendForm(
@@ -70,6 +70,13 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 		if (name === 'lastName') setLastName(value)
 		if (name === 'phone') setPhone(value)
 		if (name === 'email') setEmail(value)
+	}
+
+	const clearForm = () => {
+		setFirstname("")
+		setLastName("")
+		setPhone("")
+		setEmail("")
 	}
 
 	return (
@@ -154,7 +161,10 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 				size="sm"
 				title={"We've your details"}
 				style={{ marginTop: '0', top: '30vh' }}
-				onConfirm={() => { setSuccess(false) }}
+				onConfirm={() => { 
+					setSuccess(false);
+					clearForm();
+				}}
 				confirmBtnText={'ok'}
 				showCancel={false}
 				cancelBtnText={'cancel'}
