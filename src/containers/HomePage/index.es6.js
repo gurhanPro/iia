@@ -23,11 +23,10 @@ export class AboutPage extends Component {
         />
 
         <Grid container class="hero-image-about header-section-about" style={{ paddingLeft: '5%' }} >
-          <Grid item lg={6} xs={12} sm={6} md={6} class="gridItem1" style={{ color: 'white', paddingTop: '2%' }}>
-            <p class="p1">Inclusivity Solutions Insurance</p>
-            <h1 class="title">Insure your employees, church groups or </h1><h1>any other group members with Inclusivity Solutions Insurance</h1>
-            <p class="p2">This is a unique product that guarantees a cash pay-out to provide a befitting farewell </p><p> in case of the demise of a member of
-            an alumni group
+          <Grid item lg={4} xs={12} sm={4} md={4} class="gridItem1" style={{ color: 'white', paddingTop: '5%' }}>
+            <p class="p1">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </p>
+            <h1>Comprehensive Insurance Solutions for <br/> an All-Round Protection.</h1>
+            <p class="p2">At Inclusivity Insurance Agency, we offer solutions for your Sacco, Businesses and Employees. 
             </p>
             <br />
             <Button
@@ -38,15 +37,16 @@ export class AboutPage extends Component {
               size="large"
               onClick={() => this.setState({ openQuoteDialog: true })}
             >
-              Get a quote
+              Get free consultation
             </Button>
 
       <br/>
    
           </Grid>
-          <img src={require('./powered_by_inclusivity_logo.png')} style={{float: 'right', marginTop: '10%'}} alt="powered by inclusivity" />  />
+          <img src={require('./powered_by_inclusivity_logo.png')} style={{float: 'right', marginTop: '10%'}} alt="powered by inclusivity" />  
 
         </Grid>
+        <BritamQuote  />
 
         <BritamInfoSections />
         <Footer />

@@ -23,7 +23,7 @@ export class HomePage extends Component {
         />
         <Grid container class="hero-image-home header-section-home" style={{ paddingLeft: '5%' }} >
           <Grid item lg={6} xs={12} sm={6} md={6} class="gridItem1" style={{ color: 'white', paddingTop: '2%' }}>
-          <p class="p1">Inclusivity Solutions Insurance</p>
+          <p class="p1">xxx Inclusivity Solutions Insurance</p>
             <h1 class="title">Insure your employees, church groups or </h1><h1>any other group members with Inclusivity Solutions Insurance</h1>
             <p class="p2">This is a unique product that guarantees a cash pay-out to provide a befitting farewell </p><p> in case of the demise of a member of
             an alumni group
