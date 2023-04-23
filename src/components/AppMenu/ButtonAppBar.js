@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import {Link} from 'react-router-dom'
 export default function ButtonAppBar(props) {
   return (
     <Box sx={{ flexGrow: 1}}>
@@ -15,20 +14,6 @@ export default function ButtonAppBar(props) {
          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }} className="navbar">
-            {[
-              {page: 'Home', link: '/'},   {page: 'About', link: '/about'} ].map((page) => (
-              <Link to={page.link} className="link">
-              <Button
-                key={page.page}
-                // onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#013644', display: 'block' }}
-              >
-                {page.page}
-              </Button>
-              </Link>
-            ))}
-          </Box>
               <Button
                 variant="contained"
                 color="primary"
@@ -36,7 +21,7 @@ export default function ButtonAppBar(props) {
                 onClick={props.openQuoteDialog}
                 style={{background: '#013644'}}
               >
-                Get a quote
+                Get free consultation
               </Button>
         </Toolbar>
       </AppBar>

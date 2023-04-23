@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Grid, Dialog, DialogContent, Button} from '@mui/material';
+import { Grid, Button, Dialog, DialogContent } from '@mui/material'
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import BritamQuote from '../../components/BritamQuote';
-import './landingPage.css'
+import BritamInfoSections from '../../components/BritamInfoSections';
+import './about.css'
 import Footer from '../../components/Footer';
 import ButtonAppBar from '../../components/AppMenu/ButtonAppBar';
+import BritamQuote from '../../components/BritamQuote';
 
-export class HomePage extends Component {
+export class AboutPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,44 +15,41 @@ export class HomePage extends Component {
     }
   }
 
-
   render() {
     return (
       <Grid style={{ width: "90%", margin: "auto", backgroundColor: "white" }} >
-        <ButtonAppBar 
+        <ButtonAppBar
            openQuoteDialog={() => this.setState({ openQuoteDialog: true })}
         />
-        <Grid container class="hero-image-home header-section-home" style={{ paddingLeft: '5%' }} >
-          <Grid item lg={6} xs={12} sm={6} md={6} class="gridItem1" style={{ color: 'white', paddingTop: '2%' }}>
-          <p class="p1">Inclusivity Solutions Insurance</p>
-            <h1 class="title">Insure your employees, church groups or </h1><h1>any other group members with Inclusivity Solutions Insurance</h1>
-            <p class="p2">This is a unique product that guarantees a cash pay-out to provide a befitting farewell </p><p> in case of the demise of a member of
-            an alumni group
+
+        <Grid container class="hero-image-about header-section-about" style={{ paddingLeft: '5%' }} >
+          <Grid item lg={4} xs={12} sm={4} md={4} class="gridItem1" style={{ color: 'white', paddingTop: '5%' }}>
+            <p class="p1">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </p>
+            <h1>Comprehensive Insurance Solutions for <br/> an All-Round Protection.</h1>
+            <p class="p2">At Inclusivity Insurance Agency, we offer solutions for your Sacco, Businesses and Employees. 
             </p>
             <br />
             <Button
               variant="contained"
               color="secondary"
               startIcon={<LocalOfferIcon />}
-              style={{ background: '#013644', marginRight: "15px", marginBottom: "15px", shadow: "1px 1px 2px white, 0 0 25px #013644, 0 0 5px white" }}
+              style={{ marginRight: "15px", marginBottom: "15px", shadow: "1px 1px 2px white, 0 0 25px #013644, 0 0 5px white" }}
               size="large"
               onClick={() => this.setState({ openQuoteDialog: true })}
-
             >
-              Get a quote
+              Get free consultation
             </Button>
+
       <br/>
    
           </Grid>
-          <img src={require('./powered_by_inclusivity_logo.png')} style={{float: 'right', marginTop: '10%'}} alt="powered by inclusivity" />
+          <img src={require('./powered_by_inclusivity_logo.png')} style={{float: 'right', marginTop: '10%'}} alt="powered by inclusivity" />  
 
         </Grid>
-
         <BritamQuote  />
+
+        <BritamInfoSections />
         <Footer />
-
-
-
 
         <Dialog
           open={this.state.openQuoteDialog}
@@ -67,8 +65,9 @@ export class HomePage extends Component {
           </DialogContent>
         </Dialog>
 
+
       </Grid>
     )
   }
 }
-export default HomePage
+export default AboutPage;
