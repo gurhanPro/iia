@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 import { Button, Dialog, Grid, TextField, DialogActions, DialogContent, DialogTitle, CircularProgress } from '@mui/material'
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONSTANTS } from './emailkey';
-// import AlertDialog from '../../components/AlertDialog/index.es6';
 import AlertDialog from '../AlertDialogs/index.es6';
 
 export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
