@@ -1,10 +1,15 @@
 import React, { useState, useRef } from 'react'
-import { Button, Dialog, Grid, TextField, DialogActions, DialogContent, DialogTitle  } from '@mui/material'
+import { Button, Dialog, Grid, TextField, DialogActions, DialogContent, DialogTitle, CircularProgress  } from '@mui/material'
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONSTANTS } from './emailkey';
+// import AlertDialog from '../../components/AlertDialog/index.es6';
+import AlertDialog from '../AlertDialogs/index.es6';
 
 export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest, 
 	payload, setSendingEmailLoader, sentEmailSuccess }) {
+
+	const [emailLoader, setEmailLoader] = useState(false)
+	const [success, setSuccess] = useState(false)
 
 	const [firstName, setFirstname] = useState('')
 	const [lastName, setLastName] = useState('')
@@ -33,6 +38,7 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
   
   
 	  setSendingEmailLoader(true)
+		setEmailLoader(true)
 
 	  emailjs.sendForm(
 		EMAIL_CONSTANTS.SERVICE_ID, 
@@ -44,11 +50,14 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 			console.log(result);
 			setSendingEmailLoader(false)
 			sentEmailSuccess()
-
+			setSuccess(true)
+			setEmailLoader(false)
 
 		}, (error) => {
 			console.log(error.text);
 			setSendingEmailLoader(false)
+			setEmailLoader(false)
+
 		});
 	};
 	
@@ -62,6 +71,8 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 	}
 
 	return (
+		<>
+		
 		<Dialog
 			open={open}
 			onClose={() => { toggleOpenDialog() }}
@@ -117,6 +128,42 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 			</DialogActions>
 
 		</Dialog>
+
+
+		<AlertDialog
+            custom
+            show={emailLoader}
+            size="sm"
+            style={{ marginTop: '0', top: '30vh' }}
+            confirmBtnText={'ok'}
+            showCancel={false}
+            showConfirm={false}
+            cancelBtnText={'cancel'}
+            showTitle={false}
+            confirmBtnCssClass
+          >
+            <CircularProgress />
+            <h2>Sending your contact info!</h2>
+          </AlertDialog>
+
+					<AlertDialog
+            success
+            show={success}
+            size="sm"
+            title={"We've your details"}
+            style={{ marginTop: '0', top: '30vh' }}
+            onConfirm={() => { setSuccess(false) }}
+            confirmBtnText={'ok'}
+            showCancel={false}
+            cancelBtnText={'cancel'}
+            confirmBtnCssClass
+          >
+						<p>an agent will react out to you as soon as possible</p>
+          </AlertDialog>
+		
+		</>
+
+		
 
 	)
 }
