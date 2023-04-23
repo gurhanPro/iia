@@ -10,6 +10,7 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 
 	const [emailLoader, setEmailLoader] = useState(false)
 	const [success, setSuccess] = useState(false)
+	const [failed, setFailed] = useState(false)
 
 	const [firstName, setFirstname] = useState('')
 	const [lastName, setLastName] = useState('')
@@ -57,6 +58,7 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 			console.log(error.text);
 			setSendingEmailLoader(false)
 			setEmailLoader(false)
+			setFailed(true)
 
 		});
 	};
@@ -159,6 +161,22 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
             confirmBtnCssClass
           >
 						<p>an agent will react out to you as soon as possible</p>
+          </AlertDialog>
+
+
+					<AlertDialog
+            error
+            show={failed}
+            size="sm"
+            title={"Could not send your details"}
+            style={{ marginTop: '0', top: '30vh' }}
+            onConfirm={() => { setFailed(false) }}
+            confirmBtnText={'ok'}
+            showCancel={false}
+            cancelBtnText={'cancel'}
+            confirmBtnCssClass
+          >
+						<p>please contact agencyKe@inclusivitysolutions.com </p>
           </AlertDialog>
 		
 		</>
