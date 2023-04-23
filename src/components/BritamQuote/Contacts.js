@@ -69,9 +69,9 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 			maxWidth='sm'
 
 		>
-			<DialogTitle>Enter your details</DialogTitle>
+			<DialogTitle>Enter your contact details</DialogTitle>
 			<DialogContent>
-				<Grid container style={{ padding: '3%' }} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}
+				<Grid container style={{ padding: '3%' }} 
 					direction="row"
 					justifyContent="end"
 					alignItems="end"
@@ -113,7 +113,7 @@ export default function Contacts({ open, toggleOpenDialog, submitQuoteRequest,
 			</DialogContent>
 			<DialogActions>
 				<Button variant='outlined' onClick={() => { toggleOpenDialog() }}>Cancel</Button>
-				<Button variant='contained' onClick={sendEmail}>Get Quote</Button>
+				<Button variant='contained' onClick={sendEmail}>Get free consultation</Button>
 			</DialogActions>
 
 		</Dialog>
