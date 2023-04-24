@@ -4,9 +4,50 @@ import TimerRoundedIcon from '@mui/icons-material/TimerRounded';
 import LocalHospitalRoundedIcon from '@mui/icons-material/LocalHospitalRounded';
 import LocalAtmRoundedIcon from '@mui/icons-material/LocalAtmRounded';
 import { Grid } from '@mui/material'
+import Carousel from 'react-material-ui-carousel'
+
+const logos = [
+  {
+    img: './logos/apa.png',
+    title: 'Apa',
+  },
+  {
+    img: './logos/britam.png',
+    title: 'Britam',
+  },
+  {
+    img: './logos/cic.png',
+    title: 'CIC',
+  },
+  {
+    img: './logos/jubilee.png',
+    title: 'jubilee',
+  },
+  {
+    img: './logos/madison.png',
+    title: 'Madison',
+  },
+  {
+    img: './logos/old-mutual.png',
+    title: 'old-mutual',
+  },
+  {
+    img: './logos/pacis.png',
+    title: 'pacis',
+  },
+  {
+    img: './logos/takaful.png',
+    title: 'Takaful',
+  },
+
+];
 
 
 export default class BritamInfoSections extends Component {
+
+
+
+
   render() {
     return (
       <div>
@@ -64,8 +105,21 @@ export default class BritamInfoSections extends Component {
           <Grid container style={{ fontSize: "150%", width: "100%", backgroundColor: "#fff", color: "white", marginBottom: "70px" }}>
             <Grid container style={{ width: "70%", margin: "auto", paddingTop: "5%", paddingBottom: "5%", }}>
               <Grid item xs={12} sm={12} md={12}><h1 style={{ color: '#000', textAlign: "center", paddingBottom: "5%" }}>Who we work with</h1></Grid>
+
               <Grid item xs={12}>
-                <img src={require('./work-with.png')} alt="who we work with" width="100%" />
+                <Carousel
+                  next={(next, active) => console.log(`we left ${active}, and are now at ${next}`)}
+                  prev={(prev, active) => console.log(`we left ${active}, and are now at ${prev}`)}
+                >
+                  {logos.map((item) => (
+                    <img
+                      src={require("" + item.img)}
+                      srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                  ))}
+                </Carousel>
               </Grid>
 
             </Grid>
