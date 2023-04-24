@@ -1,0 +1,82 @@
+variables:
+  IMAGE_NAME_VERSION: inclusivity/insurance-agency:$CI_COMMIT_SHORT_SHA
+
+image: node:11.9.0
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+
+stages:
+  - Tests
+  - publish
+  - deploy
+
+run tests:
+  stage: Tests
+  script:
+    - npm install
+    - npm run testAll
+
+Publish Dockerhub:
+  stage: publish
+  script:
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker build -t $IMAGE_NAME_VERSION -f Dockerfile.production .
+    - docker push $IMAGE_NAME_VERSION
+    - docker rmi $IMAGE_NAME_VERSION
+  environment: staging
+  only:
+    - master
+
+Deploy AWS Development:
+  stage: deploy
+  environment: staging
+  script:
+    - git clone https://oauth2:$GITLAB_ACCESS_TOKEN@gitlab.com/inclusivity.aspin/inclusivity-infrastructure.git
+    - cd inclusivity-infrastructure/environments/development/
+    - kustomize edit set image $IMAGE_NAME_VERSION
+    - git add .
+    - git commit -m "Deploy Insurance-agency Development -> $CI_COMMIT_TITLE by $CI_COMMIT_AUTHOR"
+    - git push origin master
+    - cd ../../../
+    - rm -rf inclusivity-infrastructure/
+    - echo "Insurance-agency development deployment successful"
+  only:
+    - master
+
+Deploy AWS Staging:
+  stage: deploy
+  environment: staging
+  script:
+    - git clone https://oauth2:$GITLAB_ACCESS_TOKEN@gitlab.com/inclusivity.aspin/inclusivity-infrastructure.git
+    - cd inclusivity-infrastructure/environments/staging/
+    - kustomize edit set image $IMAGE_NAME_VERSION
+    - git add .
+    - git commit -m "Deploy Insurance-agency Staging -> $CI_COMMIT_TITLE by $CI_COMMIT_AUTHOR"
+    - git push origin master
+    - cd ../../../
+    - rm -rf inclusivity-infrastructure/
+    - echo "Insurance-agency staging deployment successful"
+  when: manual
+  only:
+    - master
+
+
+Deploy production aws:
+  stage: deploy
+  script:
+    - git clone https://oauth2:$GITLAB_ACCESS_TOKEN@gitlab.com/inclusivity.aspin/inclusivity-infrastructure.git
+    - cd inclusivity-infrastructure/environments/production/
+    - kustomize edit set image $IMAGE_NAME_VERSION
+    - git add .
+    - git commit -m "Deploy Insurance-agency Production -> $CI_COMMIT_TITLE by $CI_COMMIT_AUTHOR"
+    - git push origin master
+    - cd ../../../
+    - rm -rf inclusivity-infrastructure/
+    - echo "Insurance-agency production deployment successful"
+  environment: production
+  when: manual
+  only:
+    - master

@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  insurance-agency:
+    container_name: insurance-agency
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
