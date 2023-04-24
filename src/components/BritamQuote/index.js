@@ -95,15 +95,11 @@ export default class BritamQuote extends Component {
   }
 
   render() {
-    const prodTypes = ['group', 'individual', 'family']
+    const prodTypes = ['Business Insurance', 'Employee Incentives']
+    
+    const busnessInsurance = ['Credit Life', 'WIBA', 'Fire and Burglary', 'Property']
 
-    const groupProducts = ['LAST EXPENCE', 'PERSONAL ACCIDENT', 'MEDICAL COVER', 'OTHERS']
-
-    const individualProductsTypes = ['For my self', 'For my business']
-    const individualSelfProducts = ['MEDICAL COVER', 'Motor Vehical Cover']
-    const individualBusinessProducts = ['FIRE AND BURGLAR', 'Work Injury Benefits Act (WIBA)', 'Loss of income', 'Other']
-
-    const familyProducts = ['LAST EXPENCE', 'PERSONAL ACCIDENT', 'MEDICAL COVER', 'OTHERS']
+    const employeeIncentives = ['Group Health Insurance', 'Group Last Expense', 'Group Personal Accident']
 
     return (
       <>
@@ -121,40 +117,16 @@ export default class BritamQuote extends Component {
                 showDownIcon={true}
               />
 
-              {this.state.nProductType === 'individual' &&
-                <>
-                  <ProductSelection
-                    products={individualProductsTypes}
-                    selectedProduct={this.state.selectedIndividualProductsTypes}
-                    handleSelected={this.handleIndividualProductsTypesSelected.bind(this)}
-                    showDownIcon={true}
-                  />
 
-                  {this.state.selectedIndividualProductsTypes === 'For my self' && <ProductSelection
-                    products={individualSelfProducts}
-                    selectedProduct={this.state.selectedIndividualSelfProduct}
-                    handleSelected={this.handleIndividualSelfSelected.bind(this)}
-                    showDownIcon={false}
-                  />}
-
-                  {this.state.selectedIndividualProductsTypes === 'For my business' && <ProductSelection
-                    products={individualBusinessProducts}
-                    selectedProduct={this.state.selectedIndividualBusinessProduct}
-                    handleSelected={this.handleIndividualBusinessSelected.bind(this)}
-                    showDownIcon={false}
-                  />}
-
-                </>}
-
-              {this.state.nProductType === 'group' && <ProductSelection
-                products={groupProducts}
+              {this.state.nProductType === 'Business Insurance' && <ProductSelection
+                products={employeeIncentives}
                 selectedProduct={this.state.selectedGroupProduct}
                 handleSelected={this.handleGroupProductSelected.bind(this)}
                 showDownIcon={false}
               />}
 
-              {this.state.nProductType === 'family' && <ProductSelection
-                products={familyProducts}
+              {this.state.nProductType === 'Employee Incentives' && <ProductSelection
+                products={busnessInsurance}
                 selectedProduct={this.state.selectedFamilyProduct}
                 handleSelected={this.handleFamilyProductSelected.bind(this)}
                 showDownIcon={false}
@@ -169,7 +141,7 @@ export default class BritamQuote extends Component {
               variant={'contained'}
               value={this.state.benefit}
               onClick={this.letsGoWithQuote.bind(this)}
-              style={{ margin: "5px", padding: '2% 8%', backgroundColor: "#013644", fontSize: "70%" }}
+              style={{ margin: "5px", padding: '1% 2%', borderRadius: '15px', backgroundColor: "#013644" }}
             >Get me a quote on this cover</Button>
 
 

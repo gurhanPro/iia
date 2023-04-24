@@ -1,8 +1,8 @@
 .hero-image-about {
-  background:linear-gradient(0deg, rgba(34, 31, 33, 0.3), rgba(43, 40, 42, 0.3)), url("background.png");
+  background:linear-gradient(0deg, rgba(34, 31, 33, 0.3), rgba(43, 40, 42, 0.3)), url("backgrounda.png");
 
   /* background-color: #fff; */
-  height: 800px;
+  height: 844px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

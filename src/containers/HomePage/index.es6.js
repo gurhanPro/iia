@@ -23,8 +23,8 @@ export class AboutPage extends Component {
         />
 
         <Grid container class="hero-image-about header-section-about" style={{ paddingLeft: '5%' }} >
-          <Grid item lg={4} xs={12} sm={4} md={4} class="gridItem1" style={{ color: 'white', paddingTop: '5%' }}>
-            <p class="p1">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </p>
+          <Grid item lg={4} xs={12} sm={4} md={4} class="gridItem1" style={{ color: 'white', paddingTop: '15%' }}>
+            <p class="p4">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </p>
             <h1>Comprehensive Insurance Solutions for <br/> an All-Round Protection.</h1>
             <p class="p2">At Inclusivity Insurance Agency, we offer solutions for your Sacco, Businesses and Employees. 
             </p>
@@ -33,7 +33,7 @@ export class AboutPage extends Component {
               variant="contained"
               color="secondary"
               startIcon={<LocalOfferIcon />}
-              style={{ marginRight: "15px", marginBottom: "15px", shadow: "1px 1px 2px white, 0 0 25px #013644, 0 0 5px white" }}
+              style={{ marginRight: "15px", marginBottom: "15px", background: '#013644', shadow: "1px 1px 2px white, 0 0 25px #013644, 0 0 5px white" }}
               size="large"
               onClick={() => this.setState({ openQuoteDialog: true })}
             >
