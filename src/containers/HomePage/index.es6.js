@@ -24,8 +24,8 @@ export class AboutPage extends Component {
 
         <Grid container class="hero-image-about header-section-about" style={{ paddingLeft: '5%' }} >
           <Grid item lg={4} xs={12} sm={4} md={4} class="gridItem1" style={{ color: 'white', paddingTop: '15%' }}>
-            <p class="p4">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </p>
-            <h1>Comprehensive Insurance Solutions for <br/> an All-Round Protection.</h1>
+            <h1 class="p4">INCLUSIVITY SOLUTIONS INSURANCE AGENCY- KENYA </h1>
+            <h2>Comprehensive Insurance Solutions for <br/> All-Round Protection.</h2>
             <p class="p2">At Inclusivity Insurance Agency, we offer solutions for your Sacco, Businesses and Employees. 
             </p>
             <br />
