@@ -8,45 +8,45 @@ import Carousel from 'react-material-ui-carousel'
 
 const logos = [
   {
-    img: './logos/apa.png',
-    title: 'Apa',
+    img1: './logos/apa.png',
+    img2: './logos/britam.png',
+    img3: './logos/cic.png',
   },
   {
-    img: './logos/britam.png',
-    title: 'Britam',
+    img1: './logos/britam.png',
+    img2: './logos/cic.png',
+    img3: './logos/jubilee.png',
   },
   {
-    img: './logos/cic.png',
-    title: 'CIC',
+    img1: './logos/cic.png',
+    img2: './logos/jubilee.png',
+    img3: './logos/madison.png',
   },
   {
-    img: './logos/jubilee.png',
-    title: 'jubilee',
+    img1: './logos/jubilee.png',
+    img2: './logos/madison.png',
+    img3: './logos/old-mutual.png',
   },
   {
-    img: './logos/madison.png',
-    title: 'Madison',
+    img1: './logos/madison.png',
+    img2: './logos/old-mutual.png',
+    img3: './logos/pacis.png',
   },
   {
-    img: './logos/old-mutual.png',
-    title: 'old-mutual',
+    img1: './logos/old-mutual.png',
+    img2: './logos/pacis.png',
+    img3: './logos/takaful.png',
   },
   {
-    img: './logos/pacis.png',
-    title: 'pacis',
-  },
-  {
-    img: './logos/takaful.png',
-    title: 'Takaful',
+    img1: './logos/pacis.png',
+    img2: './logos/takaful.png',
+    img3: './logos/apa.png',
   },
 
 ];
 
 
 export default class BritamInfoSections extends Component {
-
-
-
 
   render() {
     return (
@@ -112,12 +112,34 @@ export default class BritamInfoSections extends Component {
                   prev={(prev, active) => console.log(`we left ${active}, and are now at ${prev}`)}
                 >
                   {logos.map((item) => (
-                    <img
-                      src={require("" + item.img)}
-                      srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                      alt={item.title}
-                      loading="lazy"
-                    />
+                    <Grid container gap={0}>
+                      <Grid xs={4}>
+                        <img
+                          src={require("" + item.img1)}
+                          loading="lazy"
+                          height={120}
+                          alt='who we work with'
+                        />
+                      </Grid>
+                      <Grid xs={4}>
+                        <img
+                          src={require("" + item.img2)}
+                          loading="lazy"
+                          height={120}
+                          alt='who we work with'
+                        />
+                      </Grid>
+                      <Grid xs={4}>
+                        <img
+                          src={require("" + item.img3)}
+                          loading="lazy"
+                          height={120}
+                          alt='who we work with'
+                        />
+                      </Grid>
+                    </Grid>
+
+
                   ))}
                 </Carousel>
               </Grid>
