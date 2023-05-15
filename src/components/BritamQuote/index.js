@@ -119,14 +119,14 @@ export default class BritamQuote extends Component {
 
 
               {this.state.nProductType === 'Business Insurance' && <ProductSelection
-                products={employeeIncentives}
+                products={busnessInsurance}
                 selectedProduct={this.state.selectedGroupProduct}
                 handleSelected={this.handleGroupProductSelected.bind(this)}
                 showDownIcon={false}
               />}
 
               {this.state.nProductType === 'Employee Incentives' && <ProductSelection
-                products={busnessInsurance}
+                products={employeeIncentives}
                 selectedProduct={this.state.selectedFamilyProduct}
                 handleSelected={this.handleFamilyProductSelected.bind(this)}
                 showDownIcon={false}
